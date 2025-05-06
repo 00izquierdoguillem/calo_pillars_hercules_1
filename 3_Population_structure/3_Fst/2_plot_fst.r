@@ -8,3 +8,6 @@ heatmap(calo_no_Leu, col = heat.colors(25))
 
 calo_no_Edw <- calo_no_Leu[-6,-6]  # Remove the rows and columns corresponding to Leu
 heatmap(calo_no_Edw, col = heat.colors(50))
+
+
+heatmap.2(drift,dendrogram="row",Rowv=FALSE, Colv=FALSE, symm=TRUE,scale="none",sepwidth=c(0,0),trace="none")
