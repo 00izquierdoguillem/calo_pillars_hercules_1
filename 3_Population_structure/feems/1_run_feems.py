@@ -108,3 +108,23 @@ v.draw_edge_colorbar()
 
 # 10. Visualize model fit
 
+# creating an obj 
+obj = Objective(sp_graph); obj.inv(); obj.grad(reg=False)
+# computing distances matrice for fit (expected) vs empirical (observed) 
+fit_cov, _, emp_cov = comp_mats(obj)
+# subsetting matrices to arrays 
+fit_dist = cov_to_dist(fit_cov)[np.tril_indices(sp_graph.n_observed_nodes, k=-1)]
+emp_dist = cov_to_dist(emp_cov)[np.tril_indices(sp_graph.n_observed_nodes, k=-1)]
+
+# fitting a linear model to the observed distances
+X = sm.add_constant(fit_dist)
+mod = sm.OLS(emp_dist, X)
+res = mod.fit()
+muhat, betahat = res.params
+
+plt.figure(dpi=100)
+plt.plot(fit_dist, emp_dist, 'o', color='k', alpha=0.8, markersize=4)
+plt.axline((0.5,0.5*betahat+muhat), slope=betahat, color='orange', ls='--', lw=3)
+plt.text(1, 0.5, "R²={:.3f}".format(res.rsquared), fontsize=15)
+plt.xlabel('Fitted distance'); plt.ylabel('Genetic distance')
+plt.title(r"$\tt{FEEMS}$ fit with estimated node-specific variances")
