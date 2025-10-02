@@ -49,7 +49,7 @@ sp_graph = SpatialGraph(genotypes, coord, grid, edges, scale_snps=True)
 lamb_grid = np.geomspace(1e-3, 1e2, 10, endpoint=True)[::-1]
 lamb_q_grid = np.geomspace(1e-2, 1e2, 5, endpoint=True)[::-1]
 
-# run cross-validation over both smoothing parameters
+# 5. If you've run the cros_validation_functions.py file, run cross-validation over both smoothing parameters
 # ~NEW~ function
 cv_err = run_cv_joint(sp_graph, lamb_grid, lamb_q_grid, n_folds=5, factr=1e10)
 
