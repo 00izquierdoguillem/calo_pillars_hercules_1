@@ -1,4 +1,4 @@
-# Script to generate the 10 sqkm resolution grid to avoid the "gird is empty changing translation" problem in feems
+# Script to generate the 10 sqkm resolution grid to avoid the "gird is empty changing translation" problem in feems - in windows, not working with the R version in the uni computer
 
 library(fs)
 library(sf)
@@ -29,5 +29,5 @@ dggs <- dgconstruct(
 
 hisp_grid_file_name_as_written <- dgshptogrid(
   dggs, "world.shp",
-  cellsize = 0.01, savegrid = "world_10resolution.shp"
+  cellsize = 0.2, savegrid = "world_10resolution.shp"
 )
