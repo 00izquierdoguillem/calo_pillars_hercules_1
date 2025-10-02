@@ -37,7 +37,7 @@ grid_path = "{}/grid_100.shp".format(data_path)  # path to discrete global grid
 # graph input files
 outer, edges, grid, _ = prepare_graph_inputs(coord=coord, 
                                              ggrid=grid_path,
-                                             translated=True, 
+                                             translated=False, 
                                              buffer=0,
                                              outer=outer)
 
