@@ -21,30 +21,36 @@ from feems import SpatialGraph, Objective, Viz
 plt.rcParams["font.family"] = "Arial"
 plt.rcParams["font.sans-serif"] = "Arial"
 
-# 3. Get data path
+# 2. Read data
 
-data_path = str(resources.files('feems') / 'data')
+data_path = "/home/guillem/Documentos/programari/feems/feems/data/calonectris_100res"
 
 # read the genotype data and mean impute missing data
-(bim, fam, G) = read_plink("{}/wolvesadmix".format(data_path))
+(bim, fam, G) = read_plink("{}/Calonectris_Cha1pop.chr1.downsampled".format(data_path))
 imp = SimpleImputer(missing_values=np.nan, strategy="mean")
 genotypes = imp.fit_transform((np.array(G)).T)
 
-print("n_samples={}, n_snps={}".format(genotypes.shape[0], genotypes.shape[1]))
-
-# 4. setup graph
-coord = np.loadtxt("{}/wolvesadmix.coord".format(data_path))  # sample coordinates
-outer = np.loadtxt("{}/wolvesadmix.outer".format(data_path))  # outer coordinates
+# 3. setup graph
+coord = np.loadtxt("{}/Calonectris_Cha1pop.chr1.downsampled.coord".format(data_path))  # sample coordinates
+outer = np.loadtxt("{}/Calonectris_Cha1pop.chr1.downsampled.100res.outer".format(data_path))  # outer coordinates
 grid_path = "{}/grid_100.shp".format(data_path)  # path to discrete global grid
 
 # graph input files
 outer, edges, grid, _ = prepare_graph_inputs(coord=coord, 
                                              ggrid=grid_path,
-                                             translated=True, 
+                                             translated=False, 
                                              buffer=0,
                                              outer=outer)
 
-# 5. Exploratory plot
+# 5. Prepare the spatial graph
+
+sp_graph = SpatialGraph(genotypes, coord, grid, edges, scale_snps=True)
+#projection = ccrs.AzimuthalEquidistant(central_longitude=5)      # Choose are and projection
+# Try and change projection cause Azimutha is crashing
+
+projection=ccrs.Robinson(central_longitude=5, globe=None)
+
+# 6. Exploratory plot - you can skip this part
 
 plt.figure(dpi=200, figsize=(8,6))
 projection = ccrs.AzimuthalEquidistant(central_longitude=-100)
@@ -70,14 +76,7 @@ for edge in edges:
 # add sample points
 ax.scatter(coord[:, 0], coord[:, 1], s=8, color='black', zorder=2,transform=ccrs.PlateCarree(), label='sample points')
 plt.legend()
-
-# 6. Prepare the spatial graph
-
-sp_graph = SpatialGraph(genotypes, coord, grid, edges, scale_snps=True)
-#projection = ccrs.AzimuthalEquidistant(central_longitude=5)      # Choose are and projection
-# Try and change projection cause Azimutha is crashing
-
-projection=ccrs.Robinson(central_longitude=5, globe=None)
+plt.savefig("prova.png", dpi=200)
 
 # 7. Map of the coordinates and grid
 
