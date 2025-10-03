@@ -22,7 +22,7 @@ plt.rcParams["font.sans-serif"] = "Helvetica"
 
 # 2. Read data
 
-data_path = "/home/guillem/Documents/software/feems/feems/data/calonectris"
+data_path = "/home/guillem/Documentos/programari/feems/feems/data/calonectris"
 
 # read the genotype data and mean impute missing data
 (bim, fam, G) = read_plink("{}/Calonectris_Cha1pop.chr1.downsampled".format(data_path))
@@ -32,7 +32,7 @@ genotypes = imp.fit_transform((np.array(G)).T)
 # 3. setup graph
 coord = np.loadtxt("{}/Calonectris_Cha1pop.chr1.downsampled.coord".format(data_path))  # sample coordinates
 outer = np.loadtxt("{}/Calonectris_Cha1pop.chr1.downsampled.outer".format(data_path))  # outer coordinates
-grid_path = "{}/grid_100.shp".format(data_path)  # path to discrete global grid
+grid_path = "{}/world_10resolution.shp".format(data_path)  # path to discrete global grid
 
 # graph input files
 outer, edges, grid, _ = prepare_graph_inputs(coord=coord, 
