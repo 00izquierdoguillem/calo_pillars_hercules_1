@@ -73,4 +73,4 @@ plt.legend(lineObj, lamb_q_grid, title=r'$\lambda_q$'); plt.grid()
 plt.xlabel(r'$\lambda$'); plt.semilogx(); plt.ylabel('LOO-CV error')
 plt.axvline(lamb_cv, linewidth = 2, color = 'orange')
 
-plt.savefig("prova_7.png")
+plt.savefig("Calonectris_subset1.lamda_crossvalidation.png")
