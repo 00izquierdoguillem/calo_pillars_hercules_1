@@ -75,6 +75,9 @@ plt.legend()
 
 sp_graph = SpatialGraph(genotypes, coord, grid, edges, scale_snps=True)
 #projection = ccrs.AzimuthalEquidistant(central_longitude=5)      # Choose are and projection
+# Try and change projection cause Azimutha is crashing
+
+projection=ccrs.Robinson(central_longitude=5, globe=None)
 
 # 7. Map of the coordinates and grid
 
