@@ -74,7 +74,7 @@ plt.legend()
 # 6. Prepare the spatial graph
 
 sp_graph = SpatialGraph(genotypes, coord, grid, edges, scale_snps=True)
-projection = ccrs.AzimuthalEquidistant(central_longitude=-100)      # Choose are and projection
+#projection = ccrs.AzimuthalEquidistant(central_longitude=5)      # Choose are and projection
 
 # 7. Map of the coordinates and grid
 
