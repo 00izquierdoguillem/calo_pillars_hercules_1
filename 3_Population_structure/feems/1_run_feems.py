@@ -31,10 +31,10 @@ imp = SimpleImputer(missing_values=np.nan, strategy="mean")
 genotypes = imp.fit_transform((np.array(G)).T)
 
 # 3. setup graph
-coord = np.loadtxt("{}/Calonectris_Cha1pop.chr1.downsampled.coord".format(data_path))  # sample coordinates
-outer = np.loadtxt("{}/Calonectris_Cha1pop.chr1.downsampled.100res.outer".format(data_path))  # outer coordinates
-grid_path = "{}/grid_100.shp".format(data_path)  # path to discrete global grid
-
+coord = np.loadtxt("{}/Calonectris_Cha1pop.chr1.coord".format(data_path))  # sample coordinates
+outer = np.loadtxt("{}/Calonectris_Cha1pop.chr1.sh100.outer".format(data_path))  # outer coordinates
+#grid_path = "{}/grid_100.shp".format(data_path)  # path to discrete global grid
+grid_path = "{}/world_7resolution.shp".format(data_path)  # path to discrete global grid
 # graph input files
 outer, edges, grid, _ = prepare_graph_inputs(coord=coord, 
                                              ggrid=grid_path,
@@ -90,10 +90,11 @@ v.draw_map(longlat=True)
 v.draw_samples()
 v.draw_edges(use_weights=False)
 v.draw_obs_nodes(use_ids=False)
+plt.savefig("Calonectris_outer.png")
 
 # 8. Fit feems - but first choose lambda and lambd_q (residual penalization) in the cross validation analysis in script 0_...sh
 
-sp_graph.fit(lamb = 2.0, lamb_q = 10.0, optimize_q = 'n-dim')
+sp_graph.fit(lamb = 10.0, lamb_q = 0, optimize_q = 'n-dim')
 
 # 9. Final plot 
 
