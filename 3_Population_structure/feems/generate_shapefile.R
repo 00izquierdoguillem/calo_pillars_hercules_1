@@ -17,7 +17,7 @@ world <- ne_countries(
 # Save to shapefile
 st_write(world, "world.shp", append = FALSE)
 
-grid_resolution <- 10
+grid_resolution <- 7
 
 dggs <- dgconstruct(
   res = grid_resolution,
@@ -29,5 +29,5 @@ dggs <- dgconstruct(
 
 hisp_grid_file_name_as_written <- dgshptogrid(
   dggs, "world.shp",
-  cellsize = 0.2, savegrid = "world_10resolution.shp"
+  cellsize = 0.2, savegrid = "world_7resolution.shp"
 )
