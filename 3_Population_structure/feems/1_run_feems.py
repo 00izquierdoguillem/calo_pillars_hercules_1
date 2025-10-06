@@ -94,7 +94,7 @@ plt.savefig("Calonectris_outer.png")
 
 # 8. Fit feems - but first choose lambda and lambd_q (residual penalization) in the cross validation analysis in script 0_...sh
 
-sp_graph.fit(lamb = 30.0, lamb_q = 100, optimize_q = 'n-dim')
+sp_graph.fit(lamb = 8, lamb_q = 10, optimize_q = 'n-dim')
 
 # 9. Final plot 
 
@@ -109,7 +109,7 @@ v.draw_edges(use_weights=True)
 v.draw_obs_nodes(use_ids=False) 
 v.draw_edge_colorbar()
 
-plt.savefig("Calonectris.chr1.downsampled.sh7.lambq100.png")
+plt.savefig("Calonectris.chr1.downsampled.sh7.png")
 
 # 10. Visualize model fit
 
