@@ -32,7 +32,7 @@ genotypes = imp.fit_transform((np.array(G)).T)
 # 3. setup graph
 coord = np.loadtxt("{}/Calonectris_Cha1pop.chr1.coord".format(data_path))  # sample coordinates
 outer = np.loadtxt("{}/Calonectris_Cha1pop.chr1.100sh.outer".format(data_path))  # outer coordinates
-grid_path = "{}/grid_100.shp".format(data_path)  # path to discrete global grid
+grid_path = "{}/world_7resolution.shp".format(data_path)  # path to discrete global grid
 
 # graph input files
 outer, edges, grid, _ = prepare_graph_inputs(coord=coord, 
