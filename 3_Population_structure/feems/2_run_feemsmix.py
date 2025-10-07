@@ -1,8 +1,8 @@
 # This script doesn't work in its own, it is a continuation of the previous one
 
-# 1. Get the top 10% fraction of outliers (from the distance-genetics matrix?)
+# 1. Get the top 30% fraction of outliers (from the distance-genetics matrix?)
 
-outliers_df = sp_graph.extract_outliers(0.01)
+outliers_df = sp_graph.extract_outliers(0.25)
 
 # 2. Visualizing the outlier demes on the map
 fig = plt.figure(dpi=200)
@@ -17,7 +17,8 @@ v.draw_outliers(outliers_df)
 # using deme IDs since all results will be represented with these numbers
 v.draw_obs_nodes(use_ids=True)
 
-plt.savefig('prova_5.png')
+plt.savefig('Calonectris.chr1.downsampled.outlierdemes.png')
+plt.savefig('Calonectris.chr1.downsampled.outlierdemes.pdf')
 
 # 3. Fit long-range edges, from 1 to 10 edges (like in treemix)
 
@@ -39,6 +40,9 @@ v = Viz(ax, sp_graph, projection=projection, edge_width=.5,
         cbar_font_size=10)
 v.draw_map(); v.draw_edges(use_weights=True); v.draw_edge_colorbar(); v.draw_obs_nodes()
 v.draw_LREs(seq_results); v.draw_c_colorbar()
+
+plt.savefig('Calonectris.chr1.downsampled.7edges.png')
+plt.savefig('Calonectris.chr1.downsampled.7edges.pdf')
 
 # 5. Plot and evaluate which is the best k 
 
