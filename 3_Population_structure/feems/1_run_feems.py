@@ -109,7 +109,7 @@ v.draw_edges(use_weights=True)
 v.draw_obs_nodes(use_ids=False) 
 v.draw_edge_colorbar()
 
-plt.savefig("Calonectris.chr1.downsampled.sh7.png")
+plt.savefig("Calonectris.chr1.downsampled.sh7.TerPalseparated.png")
 
 # 10. Visualize model fit
 
@@ -133,3 +133,6 @@ plt.axline((0.5,0.5*betahat+muhat), slope=betahat, color='orange', ls='--', lw=3
 plt.text(1, 0.5, "R²={:.3f}".format(res.rsquared), fontsize=15)
 plt.xlabel('Fitted distance'); plt.ylabel('Genetic distance')
 plt.title(r"$\tt{FEEMS}$ fit with estimated node-specific variances")
+
+plt.savefig('Calonectris.chr1.downsampled.sh7.TerPalseparated.modelfit.pdf')
+
