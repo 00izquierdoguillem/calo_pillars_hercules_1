@@ -53,7 +53,7 @@ projection=ccrs.Robinson(central_longitude=5, globe=None)
 # 6. Exploratory plot - you can skip this part
 
 plt.figure(dpi=200, figsize=(8,6))
-projection = ccrs.AzimuthalEquidistant(central_longitude=-100)
+#projection = ccrs.AzimuthalEquidistant(central_longitude=-100)
 ax = plt.axes(projection=projection)
 
 # add coastlines, borders, and land features
@@ -94,7 +94,7 @@ plt.savefig("Calonectris_outer.png")
 
 # 8. Fit feems - but first choose lambda and lambd_q (residual penalization) in the cross validation analysis in script 0_...sh
 
-sp_graph.fit(lamb = 8, lamb_q = 10, optimize_q = 'n-dim')
+sp_graph.fit(lamb = 1, lamb_q = 0.1, optimize_q = 'n-dim')
 
 # 9. Final plot 
 
@@ -110,6 +110,7 @@ v.draw_obs_nodes(use_ids=False)
 v.draw_edge_colorbar()
 
 plt.savefig("Calonectris.chr1.downsampled.sh7.TerPalseparated.png")
+plt.savefig("Calonectris.chr1.downsampled.sh7.TerPalseparated.pdf")
 
 # 10. Visualize model fit
 
@@ -134,5 +135,6 @@ plt.text(1, 0.5, "R²={:.3f}".format(res.rsquared), fontsize=15)
 plt.xlabel('Fitted distance'); plt.ylabel('Genetic distance')
 plt.title(r"$\tt{FEEMS}$ fit with estimated node-specific variances")
 
+plt.savefig('Calonectris.chr1.downsampled.sh7.TerPalseparated.modelfit.png')
 plt.savefig('Calonectris.chr1.downsampled.sh7.TerPalseparated.modelfit.pdf')
 
