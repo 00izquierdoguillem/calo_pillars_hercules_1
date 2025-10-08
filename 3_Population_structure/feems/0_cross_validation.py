@@ -25,13 +25,13 @@ plt.rcParams["font.sans-serif"] = "Helvetica"
 data_path = "/home/guillem/Documents/software/feems/feems/data/calonectris"
 
 # read the genotype data and mean impute missing data
-(bim, fam, G) = read_plink("{}/Calonectris_Cha1pop.downsampled".format(data_path))
+(bim, fam, G) = read_plink("{}/Calonectris_noEDW.chr1.downsampled".format(data_path))
 imp = SimpleImputer(missing_values=np.nan, strategy="mean")
 genotypes = imp.fit_transform((np.array(G)).T)
 
 # 3. setup graph
-coord = np.loadtxt("{}/Calonectris_Cha1pop.chr1.coord".format(data_path))  # sample coordinates
-outer = np.loadtxt("{}/Calonectris_Cha1pop.chr1.100sh.outer".format(data_path))  # outer coordinates
+coord = np.loadtxt("{}/Calonectris_noEDW.coord".format(data_path))  # sample coordinates
+outer = np.loadtxt("{}/Calonectris_noEDW.outer".format(data_path))  # outer coordinates
 grid_path = "{}/world_7resolution.shp".format(data_path)  # path to discrete global grid
 
 # graph input files
@@ -73,4 +73,4 @@ plt.legend(lineObj, lamb_q_grid, title=r'$\lambda_q$'); plt.grid()
 plt.xlabel(r'$\lambda$'); plt.semilogx(); plt.ylabel('LOO-CV error')
 plt.axvline(lamb_cv, linewidth = 2, color = 'orange')
 
-plt.savefig("Calonectris_subset1.lamda_crossvalidation.png")
+plt.savefig("Calonectris_noEDW.lamda_crossvalidation.png")
