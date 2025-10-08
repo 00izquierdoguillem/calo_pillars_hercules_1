@@ -41,8 +41,8 @@ v = Viz(ax, sp_graph, projection=projection, edge_width=.5,
 v.draw_map(); v.draw_edges(use_weights=True); v.draw_edge_colorbar(); v.draw_obs_nodes()
 v.draw_LREs(seq_results); v.draw_c_colorbar()
 
-plt.savefig('Calonectris.chr1.downsampled.7edges.png')
-plt.savefig('Calonectris.chr1.downsampled.7edges.pdf')
+plt.savefig('Calonectris.chr1.downsampled.1edges.png')
+plt.savefig('Calonectris.chr1.downsampled.1edges.pdf')
 
 # 5. Plot and evaluate which is the best k 
 
