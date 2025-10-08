@@ -2,7 +2,7 @@
 
 # 1. Get the top 30% fraction of outliers (from the distance-genetics matrix?)
 
-outliers_df = sp_graph.extract_outliers(0.25)
+outliers_df = sp_graph.extract_outliers(0.7)
 
 # 2. Visualizing the outlier demes on the map
 fig = plt.figure(dpi=200)
@@ -24,7 +24,7 @@ plt.savefig('Calonectris.chr1.downsampled.outlierdemes.pdf')
 
 seq_results = sp_graph.sequential_fit(
     outliers_df=outliers_df, 
-    lamb=2.0, lamb_q=1.0, optimize_q='n-dim', 
+    lamb=3.0, lamb_q=0.01, optimize_q='n-dim', 
     nedges=10, top=5
 )      # nedges means k?
 
@@ -41,9 +41,10 @@ v = Viz(ax, sp_graph, projection=projection, edge_width=.5,
 v.draw_map(); v.draw_edges(use_weights=True); v.draw_edge_colorbar(); v.draw_obs_nodes()
 v.draw_LREs(seq_results); v.draw_c_colorbar()
 
-plt.savefig('Calonectris.chr1.downsampled.1edges.png')
-plt.savefig('Calonectris.chr1.downsampled.1edges.pdf')
+plt.savefig('Calonectris.chr1.downsampled.CONTACT.2edges.png')
+plt.savefig('Calonectris.chr1.downsampled.CONTACT.2edges.pdf')
 
 # 5. Plot and evaluate which is the best k 
 
 plot_FEEMSmix_summary(seq_results, sequential=True)
+plt.savefig("Calonectris.chr1.downsampled.CONTACT.edge_cross_validation.pdf")
