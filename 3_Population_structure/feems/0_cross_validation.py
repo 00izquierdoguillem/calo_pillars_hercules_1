@@ -25,13 +25,13 @@ plt.rcParams["font.sans-serif"] = "Helvetica"
 data_path = "/home/guillem/Documents/software/feems/feems/data/calonectris"
 
 # read the genotype data and mean impute missing data
-(bim, fam, G) = read_plink("{}/Calonectris.CONTACT.chr1.downsampled".format(data_path))
+(bim, fam, G) = read_plink("{}/Calonectris.noEDW.chr1.downsampled".format(data_path))
 imp = SimpleImputer(missing_values=np.nan, strategy="mean")
 genotypes = imp.fit_transform((np.array(G)).T)
 
 # 3. setup graph
-coord = np.loadtxt("{}/Calonectris_CONTACT.coord".format(data_path))  # sample coordinates
-outer = np.loadtxt("{}/Calonectris_CONTACT.outer".format(data_path))  # outer coordinates
+coord = np.loadtxt("{}/Calonectris_noEDW.coord".format(data_path))  # sample coordinates
+outer = np.loadtxt("{}/Calonectris_noEDW.outer".format(data_path))  # outer coordinates
 grid_path = "{}/world_7resolution.shp".format(data_path)  # path to discrete global grid
 
 # graph input files
