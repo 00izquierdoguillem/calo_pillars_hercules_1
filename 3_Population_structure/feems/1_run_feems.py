@@ -94,7 +94,7 @@ plt.savefig("Calonectris_outer.png")
 
 # 8. Fit feems - but first choose lambda and lambd_q (residual penalization) in the cross validation analysis in script 0_...sh
 
-sp_graph.fit(lamb = 1, lamb_q = 0.1, optimize_q = 'n-dim')
+sp_graph.fit(lamb = 0.001, lamb_q = 0.01, optimize_q = 'n-dim')
 
 # 9. Final plot 
 
@@ -109,8 +109,8 @@ v.draw_edges(use_weights=True)
 v.draw_obs_nodes(use_ids=False) 
 v.draw_edge_colorbar()
 
-plt.savefig("Calonectris.chr1.downsampled.noEDW.png")
-plt.savefig("Calonectris.chr1.downsampled.noEDW.pdf")
+plt.savefig("Calonectris.chr1.downsampled.CONTACT.png")
+plt.savefig("Calonectris.chr1.downsampled.CONTACT.pdf")
 
 # 10. Visualize model fit
 
@@ -135,6 +135,6 @@ plt.text(1, 0.5, "R²={:.3f}".format(res.rsquared), fontsize=15)
 plt.xlabel('Fitted distance'); plt.ylabel('Genetic distance')
 plt.title(r"$\tt{FEEMS}$ fit with estimated node-specific variances")
 
-plt.savefig('Calonectris.chr1.downsampled.noEDW.modelfit.png')
-plt.savefig('Calonectris.chr1.downsampled.noEDW.modelfit.pdf')
+plt.savefig('Calonectris.chr1.downsampled.CONTACT.modelfit.png')
+plt.savefig('Calonectris.chr1.downsampled.CONTACT.modelfit.pdf')
 
