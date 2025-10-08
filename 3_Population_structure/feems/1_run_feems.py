@@ -135,6 +135,6 @@ plt.text(1, 0.5, "R²={:.3f}".format(res.rsquared), fontsize=15)
 plt.xlabel('Fitted distance'); plt.ylabel('Genetic distance')
 plt.title(r"$\tt{FEEMS}$ fit with estimated node-specific variances")
 
-plt.savefig('Calonectris.chr1.downsampled.sh7.TerPalseparated.modelfit.png')
-plt.savefig('Calonectris.chr1.downsampled.sh7.TerPalseparated.modelfit.pdf')
+plt.savefig('Calonectris.chr1.downsampled.noEDW.modelfit.png')
+plt.savefig('Calonectris.chr1.downsampled.noEDW.modelfit.pdf')
 
