@@ -109,8 +109,8 @@ v.draw_edges(use_weights=True)
 v.draw_obs_nodes(use_ids=False) 
 v.draw_edge_colorbar()
 
-plt.savefig("Calonectris.chr1.downsampled.sh7.TerPalseparated.png")
-plt.savefig("Calonectris.chr1.downsampled.sh7.TerPalseparated.pdf")
+plt.savefig("Calonectris.chr1.downsampled.noEDW.png")
+plt.savefig("Calonectris.chr1.downsampled.noEDW.pdf")
 
 # 10. Visualize model fit
 
