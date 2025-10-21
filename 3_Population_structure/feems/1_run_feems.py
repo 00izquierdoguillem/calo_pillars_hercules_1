@@ -109,8 +109,8 @@ v.draw_edges(use_weights=True)
 v.draw_obs_nodes(use_ids=False) 
 v.draw_edge_colorbar()
 
-plt.savefig("Calonectris.chr1.downsampled.CALDIO.png")
-plt.savefig("Calonectris.chr1.downsampled.CALDIO.pdf")
+plt.savefig("Calonectris.chr1.downsampled.CALBOR.png")
+plt.savefig("Calonectris.chr1.downsampled.CALBOR.pdf")
 
 # 10. Visualize model fit
 
@@ -135,6 +135,6 @@ plt.text(1, 0.5, "R²={:.3f}".format(res.rsquared), fontsize=15)
 plt.xlabel('Fitted distance'); plt.ylabel('Genetic distance')
 plt.title(r"$\tt{FEEMS}$ fit with estimated node-specific variances")
 
-plt.savefig('Calonectris.chr1.downsampled.CALDIO.modelfit.png')
-plt.savefig('Calonectris.chr1.downsampled.CALDIO.modelfit.pdf')
+plt.savefig('Calonectris.chr1.downsampled.CALBOR.modelfit.png')
+plt.savefig('Calonectris.chr1.downsampled.CALBOR.modelfit.pdf')
 
