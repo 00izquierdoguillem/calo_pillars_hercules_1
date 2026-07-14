@@ -1,0 +1,15 @@
+# On using SINGER to generate ARGs
+
+Interpretation of the output:
+-n 	the number of posterior samples, default at 100
+-thin 	the number of MCMC iterations between adjacent samples, default at 20
+
+The output file names have the following structure (example from a recombs file):
+
+     Name_0_1_recombs_n.txt        where n is the posterior sample. 0_1 would be the parallelization set, if I'm not wrong.
+
+Then, if it's worked correctly, it will generate .trees files for each of the posterior samples, which will be named:
+
+     Name_n.trees                  where n is the posterior sample.
+
+After that, we combine all .trees files to a single file in tskit format using the $SINGER/convert_to_tskit script
