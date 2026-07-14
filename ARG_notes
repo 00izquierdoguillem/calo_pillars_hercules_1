@@ -12,4 +12,36 @@ Then, if it's worked correctly, it will generate .trees files for each of the po
 
      Name_n.trees                  where n is the posterior sample.
 
-After that, we combine all .trees files to a single file in tskit format using the $SINGER/convert_to_tskit script
+After that, we combine all .trees files to a single file in tskit format using the $SINGER/convert_to_tskit script. However, you have to do this separately for each coordinate set. So for instance, the command would be:
+     
+     $SINGER/convert_to_tskit -input Calonectris_prova_0_1 -output Calonectris_prova_combined_0_1 -start 1 -end 99 -step 98
+
+Then we could join them using the following script. However, should this be previous to generating the tskit file?
+
+     python merge_ARG.py --file_table sub_file_table_file --output merged_ARG_filename
+
+
+#### GAIA installation
+
+I ran into the following problems:
+     
+     A combination of two Makefile issues:
+     
+     CC99 was undefined
+     R does not define CC99 in your setup (R CMD config CC99 confirmed this).
+     The recursive tskit build was therefore trying to execute a command literally called c.
+     Switching from $(CC99) to $(CC) fixed that.
+     The recursive make was in the wrong Makefile
+     src/Makevars should call into src/tskit/Makefile.
+     src/tskit/Makefile should actually compile the tskit sources.
+     
+     Putting the recursive cd tskit rule inside src/tskit/Makefile caused the nonexistent path:
+     
+     src/tskit/tskit
+     Moving the recursion back to src/Makevars restored the intended Matrix-style subdirectory build.
+
+Solved it with ChatGPT.
+
+
+
+
