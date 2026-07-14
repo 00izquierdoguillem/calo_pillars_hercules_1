@@ -43,5 +43,10 @@ I ran into the following problems:
 Solved it with ChatGPT.
 
 
+#### GAIA functions
+
+    1. treeseq_discrete_mpr: compute the minimum migration costs needed to explain sampled geographic locations under different possible ancestral state assignments
+
+
 
 
