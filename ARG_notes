@@ -20,8 +20,30 @@ Then we could join them using the following script. However, should this be prev
 
      python merge_ARG.py --file_table sub_file_table_file --output merged_ARG_filename
 
+### Changed the approach somewhat.... Fill this section with the script ##
 
-#### GAIA installation
+##########################################################################
+### Checking the SINGER performance ###
+
+### We will do: a) Compare the coalescence times before and after merging
+###             b) Compare the coalescence times of different SINGER samples for the same region
+
+With 50kb windows, there's a considerable variance in coalescence time between samples when looking at the same region and individual, although the estimates per window follow a gaussian distribution in most cases. However, in zome conspecific individuals, there's a bimodal distribution of coalescence time estimates instead, suggesting that multiple topologies with different coalescence times are contained within the 50kb windows.
+However, with 10kb windows, variation seems eveng greater within windows! Suggests that size is still too big?
+
+###             c) Compare the coalescence times before and after using POLEGON
+###             d) Compare the coalescence times using 10kb vs 50kb windows
+
+Means and error don't vary, but 10kb captures many more recent coalescence events between taxa (as well as older).
+
+Generally speaking, coalescence times between SINGER samples vary a lot more in leucomelas than in other individuals
+
+##########################################################################
+
+### GAIA ##
+
+
+#### GAIA installation #####
 
 I ran into the following problems:
      
@@ -42,7 +64,7 @@ I ran into the following problems:
 
 Solved it with ChatGPT.
 
-### Previous to running GAIA
+### Previous to running GAIA ####
 
 We have to generate a landgrid.
 
