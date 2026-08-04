@@ -68,10 +68,16 @@ Solved it with ChatGPT.
 
 We have to generate a landgrid.
 
-#### GAIA functions
+#### GAIA functions ##########
 
     1. treeseq_discrete_mpr: compute the minimum migration costs needed to explain sampled geographic locations under different possible ancestral state assignments
 
+It needs the treeseq file; a dataframe of the sites and samples giving them a 1-based index; and a migration costs matrix.
+
+I calculated the migration costs matrix using the minimum maritime distance 
 
 
+##### Figures #############
+
+To generate the "Ancestry through time" figure: follow "gaia-paper/data/empirical/analysis/ancestry.R" to generate the ancestry file, then "gaia-paper/data/empirical/figs/ancestry/ancestry.R" to plot it.
 
